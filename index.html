@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bạn Đang Dùng AI Ở Level Nào? | MindX</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Phudu:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Phudu', 'sans-serif'],
+                        body: ['SVN-Gilroy', 'Be Vietnam Pro', 'Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --font-heading: 'Phudu', sans-serif;
+            --font-body: 'SVN-Gilroy', 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .font-heading,
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading) !important;
+        }
+
+        .font-body,
+        body,
+        button,
+        input,
+        textarea {
+            font-family: var(--font-body) !important;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-50 font-body selection:bg-red-200 flex flex-col justify-between">
+
+    <!-- Header / Logo Area -->
+    <header class="w-full p-4 md:p-6 flex justify-center items-center bg-white shadow-sm sticky top-0 z-50">
+        <div class="flex items-center justify-center cursor-pointer" onclick="showScreen('screen-intro')">
+            <div class="text-3xl md:text-4xl font-black tracking-tighter text-gray-900 font-heading">
+                mind<span class="text-red-600">X</span>
+            </div>
+            <span
+                class="text-gray-500 font-bold text-sm md:text-base ml-2 md:ml-3 border-l-2 border-gray-300 pl-2 md:pl-3 tracking-wide uppercase mt-1 md:mt-2">Tech
+                & AI School</span>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center pt-8 md:pt-12 w-full">
+
+        <!-- ======================= -->
+        <!-- SCREEN 1: INTRO         -->
+        <!-- ======================= -->
+        <div id="screen-intro" class="max-w-6xl mx-auto p-4 md:p-8 animate-fade-in w-full block">
+            <div class="text-center mb-12">
+                <div
+                    class="inline-block bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold text-sm tracking-wide mb-4">
+                    BÀI KIỂM TRA ĐÁNH GIÁ NĂNG LỰC
+                </div>
+                <h1
+                    class="font-heading text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 uppercase tracking-tight leading-tight">
+                    Bạn Đang Dùng AI <br /> <span class="text-red-600">Ở Level Nào?</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">
+                    Thực hiện bài kiểm tra 3 phút để đo lường chính xác mức độ ứng dụng AI trong công việc hàng ngày,
+                    phát hiện <span class="text-red-600 font-bold">3 điểm nghẽn</span> đang làm giảm 70% hiệu suất của
+                    bạn, và nhận ngay bộ tài liệu tương ứng giúp nâng cấp level.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                <div
+                    class="bg-blue-950 text-white p-8 rounded-[2rem] flex flex-col justify-center transform transition hover:scale-[1.02]">
+                    <i data-lucide="target" class="w-12 h-12 text-blue-300 mb-4"></i>
+                    <h3 class="font-heading text-2xl font-bold uppercase mb-2">10 Câu Hỏi Thực Tế</h3>
+                    <p class="text-blue-100">Xây dựng bởi đội ngũ chuyên gia AI Operations. Tập trung hoàn toàn vào thói
+                        quen làm việc thực chiến.</p>
+                </div>
+
+                <div
+                    class="bg-red-600 text-white p-8 rounded-[2rem] flex flex-col justify-center transform transition hover:scale-[1.02]">
+                    <i data-lucide="zap" class="w-12 h-12 text-red-200 mb-4"></i>
+                    <h3 class="font-heading text-2xl font-bold uppercase mb-2">Phân Tích Chi Tiết</h3>
+                    <p class="text-red-100">Nhận kết quả đo lường và đề xuất giải pháp công nghệ lập tức ngay sau khi
+                        hoàn thành bài test.</p>
+                </div>
+
+                <div
+                    class="bg-green-600 text-white p-8 rounded-[2rem] flex flex-col justify-center transform transition hover:scale-[1.02]">
+                    <i data-lucide="users" class="w-12 h-12 text-green-200 mb-4"></i>
+                    <h3 class="font-heading text-2xl font-bold uppercase mb-2">Dành Cho Ai?</h3>
+                    <p class="text-green-100">Dân văn phòng, Quản lý, Freelancer, Sinh viên muốn tối ưu hóa công việc.
+                        (Không dành cho Dev AI chuyên sâu).</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="startQuiz()"
+                    class="bg-red-600 hover:bg-red-700 text-white text-xl md:text-2xl font-bold py-5 px-12 rounded-full shadow-[0_8px_30px_rgb(227,24,55,0.3)] transition-all transform hover:-translate-y-1 flex items-center justify-center mx-auto space-x-3">
+                    <span>BẮT ĐẦU KIỂM TRA NGAY</span>
+                    <i data-lucide="play" fill="currentColor" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ======================= -->
+        <!-- SCREEN 2: QUIZ          -->
+        <!-- ======================= -->
+        <div id="screen-quiz" class="max-w-3xl mx-auto p-4 md:p-8 animate-fade-in w-full hidden">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-end mb-2">
+                    <span id="quiz-section-title" class="text-sm font-bold text-gray-500 uppercase tracking-wider">
+                        Tư Duy Sử Dụng AI (Mindset)
+                    </span>
+                    <span class="text-red-600 font-bold text-lg">
+                        <span id="quiz-current-num">1</span> <span class="text-gray-400 text-sm">/ 10</span>
+                    </span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="quiz-progress-bar" class="bg-red-600 h-3 rounded-full transition-all duration-500 ease-out"
+                        style="width: 10%"></div>
+                </div>
+            </div>
+
+            <!-- Question Area -->
+            <div class="bg-white rounded-[2rem] shadow-xl p-8 md:p-10 border border-gray-100">
+                <h2 id="quiz-question-text"
+                    class="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-8 leading-snug">
+                    Câu hỏi ở đây?
+                </h2>
+
+                <div id="quiz-options-container" class="space-y-4">
+                    <!-- Options will be injected here by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= -->
+        <!-- SCREEN 3: REGISTER      -->
+        <!-- ======================= -->
+        <div id="screen-register" class="max-w-2xl mx-auto p-4 md:p-8 animate-fade-in w-full hidden pb-20">
+            <div class="bg-red-600 text-white rounded-[2rem] p-8 md:p-10 shadow-2xl relative border border-red-500">
+                <!-- Top Badge -->
+                <div class="text-center mb-4">
+                    <span
+                        class="inline-block bg-white/20 border border-white/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase text-white">
+                        BƯỚC CUỐI CÙNG ĐỂ XEM KẾT QUẢ
+                    </span>
+                </div>
+
+                <h2 class="font-heading text-3xl md:text-4xl font-black text-center mb-4 uppercase tracking-tight text-white">
+                    BẢN ĐĂNG KÝ NHẬN TÀI LIỆU
+                </h2>
+                <p class="text-center text-red-100 mb-8 text-sm md:text-base leading-relaxed max-w-lg mx-auto">
+                    Vui lòng để lại thông tin chính xác để mở khóa phân tích chi tiết của chuyên gia MindX và nhận bộ
+                    quà tặng nâng cao hiệu suất làm việc 2026.
+                </p>
+
+                <form id="register-form" onsubmit="submitForm(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-white text-sm font-bold mb-2">Họ tên của Anh/Chị *</label>
+                        <input type="text" required placeholder="Ví dụ: Nguyễn Văn A"
+                            class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-white text-sm font-bold mb-2">Địa chỉ Email nhận báo cáo và tài liệu
+                            *</label>
+                        <input type="email" required placeholder="Ví dụ: email@congty.com"
+                            class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-white text-sm font-bold mb-2">Số điện thoại liên lạc *</label>
+                            <input type="tel" required placeholder="Ví dụ: 0987654321"
+                                class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
+                        </div>
+                        <div>
+                            <label class="block text-white text-sm font-bold mb-2">Bộ phận / Ngành nghề</label>
+                            <div class="relative">
+                                <select
+                                    class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors appearance-none cursor-pointer shadow-sm">
+                                    <option>Marketing & Design</option>
+                                    <option>Sales & CS</option>
+                                    <option>HR & Admin</option>
+                                    <option>Finance & Accounting</option>
+                                    <option>IT & Tech</option>
+                                    <option>Sinh viên</option>
+                                    <option>Khác</option>
+                                </select>
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-500 rounded-xl p-5 md:p-6 mt-6 shadow-inner border border-orange-400">
+                        <h3
+                            class="text-white font-bold mb-3 uppercase text-sm md:text-base flex items-center gap-2">
+                            <span>🎁</span> BẠN SẼ NHẬN THÊM BỘ QUÀ TẶNG ĐÍNH KÈM:
+                        </h3>
+                        <ul class="text-orange-50 text-sm space-y-2 list-disc list-inside">
+                            <li>Bản đồ 50 công cụ AI phân theo phòng ban mới nhất 2026.</li>
+                            <li>Bản thiết kế hệ thống đa trợ lý AI</li>
+                            <li>Suất tư vấn 1-1 (15 phút) cùng Chuyên gia từ MindX.</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-blue-900 hover:bg-blue-950 shadow-[0_8px_30px_rgb(30,58,138,0.4)] text-white font-bold text-lg py-4 rounded-xl transition-all transform hover:-translate-y-1 mt-4">
+                        Xác Nhận & Mở Khóa Kết Quả
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ======================= -->
+        <!-- SCREEN 4: RESULT        -->
+        <!-- ======================= -->
+        <div id="screen-result" class="max-w-4xl mx-auto p-4 md:p-8 animate-fade-in w-full hidden pb-20">
+            <!-- Banner Result -->
+            <div id="result-banner"
+                class="bg-orange-500 text-white rounded-[2rem] p-8 md:p-12 text-center shadow-2xl relative overflow-hidden mb-8">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                </div>
+
+                <div class="relative z-10">
+                    <h2 class="font-heading text-xl md:text-2xl font-bold uppercase tracking-widest mb-2 opacity-90">Kết
+                        Quả Đánh Giá</h2>
+                    <h1 id="result-title"
+                        class="font-heading text-4xl md:text-6xl font-black uppercase mb-4 drop-shadow-md">
+                        LEVEL 1
+                    </h1>
+                    <div id="result-subtitle"
+                        class="inline-block bg-white text-gray-900 px-6 py-2 rounded-full font-bold text-xl mb-8">
+                        Người Khai Phá Cơ Bản
+                    </div>
+
+                    <blockquote
+                        class="text-lg md:text-xl italic font-medium max-w-2xl mx-auto border-t border-white/30 pt-6">
+                        "<span id="result-quote">Quote here</span>"
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Analysis Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-red-100 p-3 rounded-xl">
+                            <i data-lucide="target" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gray-900">Vấn đề hiện tại</h3>
+                    </div>
+                    <p id="result-problem" class="text-gray-600 leading-relaxed text-lg">
+                        Problem description...
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-green-100 p-3 rounded-xl">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gray-900">Giải pháp đề xuất</h3>
+                    </div>
+                    <p id="result-solution" class="text-gray-600 leading-relaxed text-lg mb-6">
+                        Solution description...
+                    </p>
+                    <ul id="result-bullets" class="space-y-3">
+                        <!-- Bullets injected by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="bg-gray-50 rounded-3xl p-8 border-2 border-dashed border-gray-300 text-center">
+                <h3 class="font-heading text-2xl font-bold mb-8 uppercase text-gray-900">Hành Động Tiếp Theo</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    <!-- Download CTA -->
+                    <div class="bg-orange-50 border border-orange-200 rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-2 text-orange-600 mb-3">
+                                <i data-lucide="download-cloud" class="w-6 h-6"></i>
+                                <h4 class="font-bold uppercase tracking-wide text-sm">Tài liệu tặng kèm</h4>
+                            </div>
+                            <p id="result-download-title" class="font-bold text-lg text-gray-900 mb-4 leading-snug">Bộ
+                                30 Prompt Thực Chiến...</p>
+                        </div>
+                        <button
+                            class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                            <span>BẤM VÀO ĐÂY ĐỂ TẢI XUỐNG</span>
+                        </button>
+                    </div>
+
+                    <!-- Consult CTA -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-2 text-blue-800 mb-3">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                                <h4 class="font-bold uppercase tracking-wide text-sm">Chuyên gia đồng hành</h4>
+                            </div>
+                            <p id="result-consult-title" class="font-bold text-lg text-gray-900 mb-2 leading-snug">TƯ
+                                VẤN 1-1 CHUYÊN SÂU</p>
+                            <p id="result-consult-desc" class="text-gray-600 mb-6 text-sm leading-relaxed">Cùng chuyên
+                                gia MindX...</p>
+                        </div>
+                        <button
+                            class="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-3 px-6 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                            <span>ĐĂNG KÝ TƯ VẤN NGAY</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="retakeQuiz()"
+                    class="mt-8 text-gray-500 hover:text-red-600 font-medium underline underline-offset-4">
+                    Làm lại bài kiểm tra
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-6 text-sm font-medium text-gray-400 bg-gray-50 mt-auto">
+        © 2026 MindX AI Operations.
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // Data Definitions
+        const questions = [
+            {
+                section: "Tư Duy Sử Dụng AI (Mindset)",
+                question: "Tần suất và mục đích sử dụng AI hàng ngày của bạn là gì?",
+                options: [
+                    { text: "Thỉnh thoảng dùng tra cứu nhanh (thay Google).", score: 1 },
+                    { text: "Dùng hàng ngày để viết lách, tóm tắt hoặc dịch thuật cơ bản.", score: 2 },
+                    { text: "Kết hợp nhiều công cụ AI để phân tích dữ liệu, làm slide, thiết kế ảnh.", score: 3 },
+                    { text: "Tự tạo chatbot trợ lý riêng (GPTs, Poe bot) để tự động hóa chuyên môn.", score: 4 }
+                ]
+            },
+            {
+                section: "Tư Duy Sử Dụng AI (Mindset)",
+                question: "Khi viết câu lệnh (Prompt) cho AI, bạn thường viết theo cách nào?",
+                options: [
+                    { text: "Gõ từ khóa ngắn, hỏi đáp đơn giản như Google Search.", score: 1 },
+                    { text: "Thêm vai trò và bối cảnh cơ bản vào câu lệnh.", score: 2 },
+                    { text: "Dùng cấu trúc chuyên nghiệp (như RGC: Vai trò - Mục tiêu - Bối cảnh).", score: 3 },
+                    { text: "Cấu hình System Prompt nâng cao và cung cấp dữ liệu mẫu (Few-shot).", score: 4 }
+                ]
+            },
+            {
+                section: "Tư Duy Sử Dụng AI (Mindset)",
+                question: "Khi AI đưa ra câu trả lời sai lệch, bịa đặt thông tin (Hallucination) hoặc không đúng ý, bạn sẽ làm gì?",
+                options: [
+                    { text: "Bỏ qua, tự làm thủ công vì thấy AI không đáng tin.", score: 1 },
+                    { text: "Nhấn nút Regenerate hoặc yêu cầu chung chung: \"Viết lại tốt hơn đi\".", score: 2 },
+                    { text: "Chỉ rõ điểm sai, bổ sung ngữ cảnh và hướng dẫn AI sửa đổi từng phần.", score: 3 },
+                    { text: "Chia nhỏ nhiệm vụ phức tạp thành chuỗi lệnh (Prompt Chaining) liên kết nhau.", score: 4 }
+                ]
+            },
+            {
+                section: "Kỹ Năng Ứng Dụng Thực Chiến (Skill)",
+                question: "Bạn đang bảo mật dữ liệu công việc như thế nào khi làm việc với AI?",
+                options: [
+                    { text: "Copy toàn bộ tài liệu, dữ liệu thô nội bộ dán trực tiếp vào AI miễn phí.", score: 1 },
+                    { text: "Chỉ dán văn bản chung, lọc bớt thông tin cực kỳ nhạy cảm.", score: 2 },
+                    { text: "Chủ động tắt lịch sử chat và chặn AI lấy dữ liệu huấn luyện (Data Opt-out).", score: 3 },
+                    { text: "Dùng API bảo mật hoặc chạy mô hình AI offline (Local LLM) riêng tư.", score: 4 }
+                ]
+            },
+            {
+                section: "Kỹ Năng Ứng Dụng Thực Chiến (Skill)",
+                question: "Trong việc xử lý số liệu và bảng tính (Excel/Google Sheets), AI hỗ trợ bạn ở mức độ nào?",
+                options: [
+                    { text: "Chưa từng dùng AI cho bảng tính, chủ yếu làm thủ công.", score: 1 },
+                    { text: "Chỉ hỏi AI cách viết các công thức cụ thể khi quên.", score: 2 },
+                    { text: "Dùng AI làm sạch dữ liệu thô, phân tích xu hướng và viết hàm phức tạp.", score: 3 },
+                    { text: "Nhờ AI viết Apps Script/VBA để tự động hóa xuất báo cáo, biểu đồ định kỳ.", score: 4 }
+                ]
+            },
+            {
+                section: "Kỹ Năng Ứng Dụng Thực Chiến (Skill)",
+                question: "Khi cần thiết kế một bài trình chiếu (Slide thuyết trình/Báo cáo dự án), quy trình của bạn là gì?",
+                options: [
+                    { text: "Tự viết nội dung và thiết kế slide PowerPoint hoàn toàn thủ công.", score: 1 },
+                    { text: "Nhờ AI phác thảo đề cương, sau đó tự dàn trang và làm slide thủ công.", score: 2 },
+                    { text: "Dùng tool tạo slide tự động (Gamma, Tome AI) để ra khung rồi chỉnh lại.", score: 3 },
+                    { text: "Viết nội dung bằng Markdown, dùng công cụ tự động render slide (Marp).", score: 4 }
+                ]
+            },
+            {
+                section: "Kỹ Năng Ứng Dụng Thực Chiến (Skill)",
+                question: "Cách bạn xử lý bộ nhớ của AI trong một phiên làm việc dài để tránh tình trạng AI bị \"loãng\" hoặc quên thông tin (Context Rot)?",
+                options: [
+                    { text: "Thường chat tiếp trong một tab cũ rất dài khiến AI bị lẫn lộn thông tin.", score: 1 },
+                    { text: "Chủ động mở tab chat mới khi thấy AI bắt đầu trả lời sai lệch.", score: 2 },
+                    { text: "Yêu cầu AI tóm tắt nội dung chính ở tab cũ làm ngữ cảnh đầu vào cho tab mới.", score: 3 },
+                    { text: "Cấu hình tệp chỉ dẫn rules hoặc bộ nhớ dài hạn để AI luôn nhớ luật cốt lõi.", score: 4 }
+                ]
+            },
+            {
+                section: "Tích Hợp Hệ Thống & Tự Động Hóa (Application)",
+                question: "Mức độ liên kết các công cụ AI khác nhau trong quy trình làm việc của bạn ra sao?",
+                options: [
+                    { text: "Dùng các công cụ AI hoàn toàn độc lập và rời rạc.", score: 1 },
+                    { text: "Copy-paste thủ công kết quả từ công cụ AI này sang công cụ AI khác.", score: 2 },
+                    { text: "Dùng nền tảng tích hợp (Coze, Poe) để gom nhiều model AI vào một luồng.", score: 3 },
+                    { text: "Thiết lập luồng tự động hóa no-code (Make, n8n) để AI tự chạy ngầm.", score: 4 }
+                ]
+            },
+            {
+                section: "Tích Hợp Hệ Thống & Tự Động Hóa (Application)",
+                question: "Bạn hiểu như thế nào về khái niệm \"AI Agent\" và \"Agentic AI\"?",
+                options: [
+                    { text: "Chưa nghe nói, chỉ biết đến các chatbot trò chuyện thông thường.", score: 1 },
+                    { text: "Có biết sơ qua nhưng nghĩ nó chỉ là chatbot thông minh hơn (GPT-4, Claude).", score: 2 },
+                    { text: "Hiểu là AI có thể tự lập kế hoạch, tự chọn công cụ để hoàn thành mục tiêu.", score: 3 },
+                    { text: "Đang xây hệ thống đa nhân sự AI (Multi-Agent Swarm) phối hợp làm việc tự động.", score: 4 }
+                ]
+            },
+            {
+                section: "Tích Hợp Hệ Thống & Tự Động Hóa (Application)",
+                question: "Tầm nhìn của bạn về việc đưa AI vào tối ưu hóa vận hành lâu dài là gì?",
+                options: [
+                    { text: "Chưa có kế hoạch, chỉ dùng hỗ trợ các việc phát sinh nhất thời.", score: 1 },
+                    { text: "Tự ứng dụng cá nhân và thỉnh thoảng chia sẻ mẹo cho đồng nghiệp.", score: 2 },
+                    { text: "Viết SOP quy trình để chuẩn bị huấn luyện chatbot/AI xử lý.", score: 3 },
+                    { text: "Tái cấu trúc mô hình làm việc Hybrid (Người điều phối + Dàn Agent tự chạy).", score: 4 }
+                ]
+            }
+        ];
+
+        const resultsData = [
+            {
+                level: 1,
+                title: "LEVEL 1: Chatbot Explorer",
+                subtitle: "Người Khai Phá Cơ Bản",
+                color: "bg-orange-500",
+                quote: "Bạn đang lãng phí 80% sức mạnh của công nghệ vì chỉ dùng AI làm trợ lý gõ phím cơ bản.",
+                problem: "Bạn mới chỉ dùng AI ở mức hỏi-đáp cơ bản (như một Google phiên bản nâng cấp). Do chưa nắm vững kỹ thuật Prompt Engineering, chất lượng đầu ra của AI không ổn định, lúc hay lúc dở, khiến bạn mất nhiều thời gian sửa lại và chưa thấy hiệu quả đột phá.",
+                solution: "Chuẩn hóa kỹ năng giao tiếp với AI để biến công cụ này thành một trợ lý đa năng. Thay vì thao tác ngẫu hứng, bạn cần trang bị các công thức cấu trúc lệnh chuyên sâu (được thiết kế chuẩn cho môi trường doanh nghiệp) để giải quyết dứt điểm các tác vụ:",
+                bullets: [
+                    "Tự động hóa tác vụ lặp lại: Soạn thảo email sắc bén, tóm tắt cuộc họp tự động và lập kế hoạch làm việc thông minh.",
+                    "Phân tích và ra quyết định: Sử dụng AI như một \"nhà nghiên cứu\" để truy xuất, tổng hợp thông tin từ hàng ngàn nguồn và phản biện lập luận.",
+                    "Trình bày ý tưởng: Áp dụng các framework tư duy chuẩn để tạo slide và thiết kế bài thuyết trình có sức thuyết phục cao.",
+                    "Xây dựng trợ lý cá nhân: Tự thiết lập các 'Chatbot chuyên trách' đóng gói chuyên môn của riêng mình."
+                ],
+                downloadText: "Bộ 30 Prompt Thực Chiến dành riêng cho Level 1",
+                consultTitle: "TƯ VẤN 1-1 CHUYÊN SÂU CÙNG CHUYÊN GIA",
+                consultDesc: "Cùng Chuyên gia AI của MindX chẩn đoán trực tiếp vấn đề của bạn và xây dựng lộ trình ứng dụng AI cá nhân hóa."
+            },
+            {
+                level: 2,
+                title: "LEVEL 2: Prompt Practitioner",
+                subtitle: "Người Thực Chiến Công Cụ",
+                color: "bg-blue-900",
+                quote: "Bạn đã là một chiến binh sử dụng công cụ xuất sắc, nhưng đang bị kẹt ở chiếc bẫy 'Sao chép & Dán thủ công'.",
+                problem: "Bạn đã biết cách viết Prompt và sử dụng nhiều công cụ AI. Tuy nhiên, điểm nghẽn là sự kết nối. Bạn vẫn phải mất thời gian copy nội dung từ chatbot này sang chatbot khác, quy trình vẫn bị ngắt quãng, thiếu tính liên kết tự động và mất thời gian xử lý dữ liệu thủ công.",
+                solution: "Nâng cấp tư duy phân tích và áp dụng AI vào quy trình xử lý dữ liệu để thoát khỏi vòng lặp thủ công. Thay vì copy-paste rời rạc, bạn cần xây dựng một luồng công việc bài bản, kết hợp giữa bảng tính và GenAI để:",
+                bullets: [
+                    "Khai thác dữ liệu bằng ngôn ngữ tự nhiên: Đặt câu hỏi kinh doanh sắc bén và để AI tự động trích xuất thông tin, tóm tắt từ bộ dữ liệu thô.",
+                    "Chuẩn hóa & làm sạch dữ liệu: Áp dụng các kỹ thuật xử lý để biến dữ liệu lộn xộn thành kho dữ liệu sạch, đáng tin cậy.",
+                    "Trực quan hóa & Tự động hóa báo cáo: Thiết lập các Dashboard động làm nổi bật xu hướng và sử dụng các công cụ tự động hóa để báo cáo tự cập nhật định kỳ.",
+                    "Phân tích nguyên nhân gốc rễ: Dùng AI hỗ trợ dò tìm 'điểm mù' trong dữ liệu và lập ra kế hoạch hành động cụ thể."
+                ],
+                downloadText: "Bản Đồ 50 Công Cụ AI Phân Theo Phòng Ban",
+                consultTitle: "ĐĂNG KÝ TƯ VẤN 1-1 CHUYÊN SÂU",
+                consultDesc: "Cùng Chuyên gia AI của MindX thiết kế giải pháp tự động hóa công việc báo cáo định kỳ và tối ưu luồng dữ liệu của bạn."
+            },
+            {
+                level: 3,
+                title: "LEVEL 3: Automation Architect",
+                subtitle: "Kiến Trúc Sư Tự Động Hóa",
+                color: "bg-green-600",
+                quote: "Bạn đã chạm tới ngưỡng tư duy hệ thống. Bước tiếp theo là làm chủ Agentic AI, liên kết các tác vụ riêng lẻ thành luồng quy trình liên hoàn.",
+                problem: "Bạn thuộc nhóm 5% người dùng AI trình độ cao, có tư duy hệ thống và mong muốn tự động hóa toàn diện. Thử thách hiện tại là làm sao liên kết các công việc chuyên môn phức tạp thành một hệ thống Agentic AI (nhân sự AI tự chạy, tự quyết định) mà không bị đứt gãy, đồng thời kiểm soát chất lượng ở quy mô lớn.",
+                solution: "Thiết lập kiến trúc đa tác vụ Multi-Agent. Bạn cần đóng gói quy trình nghiệp vụ thành các kỹ năng cho AI, xây dựng luồng Workflow tự động và áp dụng cơ chế kiểm duyệt chất lượng (Maker-Checker Gate) để hệ thống tự vận hành chính xác 100%.",
+                bullets: [
+                    "Đóng gói quy trình nghiệp vụ thành các kỹ năng cho AI.",
+                    "Xây dựng luồng Workflow tự động hóa toàn diện.",
+                    "Áp dụng cơ chế Maker-Checker Gate để kiểm soát chất lượng."
+                ],
+                downloadText: "Bản Thiết Kế Hệ Thống Đa Trợ Lý AI (Multi-Agent System Blueprint)",
+                consultTitle: "ĐĂNG KÝ TƯ VẤN 1-1 CHUYÊN SÂU",
+                consultDesc: "Cùng Kỹ sư Giải pháp AI của MindX rà soát quy trình hiện tại, đánh giá tính khả thi và phác thảo bản thiết kế hệ thống Agentic AI phù hợp."
+            }
+        ];
+
+        // State variables
+        let currentQ = 0;
+        let scores = Array(10).fill(0);
+
+        // Elements
+        const elScreenIntro = document.getElementById('screen-intro');
+        const elScreenQuiz = document.getElementById('screen-quiz');
+        const elScreenRegister = document.getElementById('screen-register');
+        const elScreenResult = document.getElementById('screen-result');
+
+        // Initialize Icons
+        lucide.createIcons();
+
+        function showScreen(screenId) {
+            elScreenIntro.classList.add('hidden');
+            elScreenQuiz.classList.add('hidden');
+            elScreenRegister.classList.add('hidden');
+            elScreenResult.classList.add('hidden');
+            document.getElementById(screenId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function startQuiz() {
+            currentQ = 0;
+            scores = Array(10).fill(0);
+            renderQuestion();
+            showScreen('screen-quiz');
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQ];
+            const progress = ((currentQ + 1) / questions.length) * 100;
+
+            // Update Progress UI
+            document.getElementById('quiz-section-title').innerText = q.section;
+            document.getElementById('quiz-current-num').innerText = currentQ + 1;
+            document.getElementById('quiz-progress-bar').style.width = `${progress}%`;
+
+            // Update Question
+            document.getElementById('quiz-question-text').innerText = q.question;
+
+            // Update Options
+            const optionsContainer = document.getElementById('quiz-options-container');
+            optionsContainer.innerHTML = ''; // clear old
+
+            q.options.forEach((opt, idx) => {
+                const letter = String.fromCharCode(65 + idx); // A, B, C, D
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-5 md:p-6 rounded-2xl border-2 border-gray-100 hover:border-red-600 hover:bg-red-50 focus:outline-none focus:ring-4 focus:ring-red-100 transition-all group flex items-center space-x-4";
+                btn.onclick = () => handleAnswer(opt.score);
+
+                btn.innerHTML = `
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 group-hover:bg-red-600 group-hover:text-white flex items-center justify-center font-bold text-gray-500 transition-colors">
+                        ${letter}
+                    </div>
+                    <span class="text-lg text-gray-700 font-medium group-hover:text-gray-900">
+                        ${opt.text}
+                    </span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(score) {
+            scores[currentQ] = score;
+
+            if (currentQ < questions.length - 1) {
+                // Next question with slight delay
+                setTimeout(() => {
+                    currentQ++;
+                    renderQuestion();
+                }, 300);
+            } else {
+                // Show register screen
+                setTimeout(() => {
+                    showScreen('screen-register');
+                    lucide.createIcons();
+                }, 400);
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            calculateAndRenderResult();
+        }
+
+        function calculateAndRenderResult() {
+            const total = scores.reduce((a, b) => a + b, 0);
+            let result;
+
+            if (total <= 20) result = resultsData[0];
+            else if (total <= 30) result = resultsData[1];
+            else result = resultsData[2];
+
+            // Update Result UI
+            const banner = document.getElementById('result-banner');
+            // Remove old color classes
+            banner.classList.remove('bg-orange-500', 'bg-blue-900', 'bg-green-600');
+            banner.classList.add(result.color);
+
+            document.getElementById('result-title').innerText = result.title.split(':')[0];
+            document.getElementById('result-subtitle').innerText = result.subtitle;
+            document.getElementById('result-quote').innerText = result.quote;
+
+            document.getElementById('result-problem').innerText = result.problem;
+            document.getElementById('result-solution').innerText = result.solution;
+
+            const bulletsContainer = document.getElementById('result-bullets');
+            bulletsContainer.innerHTML = '';
+            result.bullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.className = "flex items-start space-x-3 text-gray-700";
+                li.innerHTML = `
+                    <div class="mt-1 bg-green-500 rounded-full p-0.5 flex-shrink-0">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <span class="font-medium">${bullet}</span>
+                `;
+                bulletsContainer.appendChild(li);
+            });
+
+            document.getElementById('result-download-title').innerText = result.downloadText;
+            document.getElementById('result-consult-title').innerText = result.consultTitle;
+            document.getElementById('result-consult-desc').innerText = result.consultDesc;
+
+            // Re-render icons because new DOM elements were injected
+            lucide.createIcons();
+
+            showScreen('screen-result');
+        }
+
+        function retakeQuiz() {
+            showScreen('screen-intro');
+        }
+
+    </script>
+</body>
+
+</html>
