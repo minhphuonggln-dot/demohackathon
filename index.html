@@ -328,7 +328,7 @@
                             <p id="result-download-title" class="font-bold text-lg text-gray-900 mb-4 leading-snug">Bộ
                                 30 Prompt Thực Chiến...</p>
                         </div>
-                        <button
+                        <button id="btn-download-gift"
                             class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
                             <span>BẤM VÀO ĐÂY ĐỂ TẢI XUỐNG</span>
                         </button>
@@ -509,6 +509,7 @@
                     "Xây dựng trợ lý cá nhân: Tự thiết lập các 'Chatbot chuyên trách' đóng gói chuyên môn của riêng mình."
                 ],
                 downloadText: "Bộ 30 Prompt Thực Chiến dành riêng cho Level 1",
+                downloadUrl: "./Tai_Lieu_Prompt_Van_Phong.pdf",
                 consultTitle: "TƯ VẤN 1-1 CHUYÊN SÂU CÙNG CHUYÊN GIA",
                 consultDesc: "Cùng Chuyên gia AI của MindX chẩn đoán trực tiếp vấn đề của bạn và xây dựng lộ trình ứng dụng AI cá nhân hóa."
             },
@@ -732,6 +733,15 @@
             document.getElementById('result-download-title').innerText = result.downloadText;
             document.getElementById('result-consult-title').innerText = result.consultTitle;
             document.getElementById('result-consult-desc').innerText = result.consultDesc;
+
+            const downloadBtn = document.getElementById('btn-download-gift');
+            downloadBtn.onclick = () => {
+                if (result.downloadUrl) {
+                    window.open(result.downloadUrl, '_blank');
+                } else {
+                    alert("Tài liệu cho cấp độ này đang được chuyên gia MindX cập nhật và sẽ sớm gửi cho bạn!");
+                }
+            };
 
             // Re-render icons because new DOM elements were injected
             lucide.createIcons();
