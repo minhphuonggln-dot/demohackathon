@@ -188,27 +188,27 @@
                 <form id="register-form" onsubmit="submitForm(event)" class="space-y-5">
                     <div>
                         <label class="block text-white text-sm font-bold mb-2">Họ tên của Anh/Chị *</label>
-                        <input type="text" required placeholder="Ví dụ: Nguyễn Văn A"
+                        <input type="text" id="lead-name" required placeholder="Ví dụ: Nguyễn Văn A"
                             class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
                     </div>
 
                     <div>
                         <label class="block text-white text-sm font-bold mb-2">Địa chỉ Email nhận báo cáo và tài liệu
                             *</label>
-                        <input type="email" required placeholder="Ví dụ: email@congty.com"
+                        <input type="email" id="lead-email" required placeholder="Ví dụ: email@congty.com"
                             class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                             <label class="block text-white text-sm font-bold mb-2">Số điện thoại liên lạc *</label>
-                            <input type="tel" required placeholder="Ví dụ: 0987654321"
+                            <input type="tel" id="lead-phone" required placeholder="Ví dụ: 0987654321"
                                 class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors placeholder-gray-400 shadow-sm">
                         </div>
                         <div>
                             <label class="block text-white text-sm font-bold mb-2">Bộ phận / Ngành nghề</label>
                             <div class="relative">
-                                <select
+                                <select id="lead-department"
                                     class="w-full bg-white text-gray-900 border border-transparent focus:border-blue-500 rounded-xl px-4 py-4 outline-none transition-colors appearance-none cursor-pointer shadow-sm">
                                     <option>Marketing & Design</option>
                                     <option>Sales & CS</option>
@@ -610,8 +610,39 @@
             }
         }
 
-        function submitForm(event) {
+        async function submitForm(event) {
             event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Đang xử lý...";
+            btn.disabled = true;
+
+            const name = document.getElementById('lead-name').value;
+            const email = document.getElementById('lead-email').value;
+            const phone = document.getElementById('lead-phone').value;
+            const department = document.getElementById('lead-department').value;
+            const totalScore = scores.reduce((a, b) => a + b, 0);
+
+            // TODO: Thay bằng URL Web App Apps Script sau khi bạn Deploy
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx1xyI3wnrsC6H90T57y8-9XdG2fNU4a-_WUsras-36L7KSxGTeNAamxNa2-LvUe0qipQ/exec';
+
+            if (scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('phone', phone);
+                formData.append('department', department);
+                formData.append('score', totalScore);
+
+                try {
+                    await fetch(scriptURL, { method: 'POST', body: formData });
+                } catch (e) {
+                    console.error("Lỗi khi đẩy lead:", e);
+                }
+            }
+
+            btn.innerText = originalText;
+            btn.disabled = false;
             calculateAndRenderResult();
         }
 
