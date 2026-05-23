@@ -346,7 +346,7 @@
                             <p id="result-consult-desc" class="text-gray-600 mb-6 text-sm leading-relaxed">Cùng chuyên
                                 gia MindX...</p>
                         </div>
-                        <button onclick="showScreen('screen-thankyou')"
+                        <button onclick="registerConsult(this)"
                             class="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-3 px-6 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
                             <span>ĐĂNG KÝ TƯ VẤN NGAY</span>
                         </button>
@@ -645,11 +645,14 @@
             const department = document.getElementById('lead-department').value;
             const totalScore = scores.reduce((a, b) => a + b, 0);
 
+            window.currentLeadEmail = email; // Lưu lại để dùng nếu ấn Tư vấn
+
             // TODO: Thay bằng URL Web App Apps Script sau khi bạn Deploy
             const scriptURL = 'https://script.google.com/macros/s/AKfycbx1xyI3wnrsC6H90T57y8-9XdG2fNU4a-_WUsras-36L7KSxGTeNAamxNa2-LvUe0qipQ/exec';
 
             if (scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
                 const formData = new FormData();
+                formData.append('action', 'newLead');
                 formData.append('name', name);
                 formData.append('email', email);
                 formData.append('phone', phone);
@@ -666,6 +669,29 @@
             btn.innerText = originalText;
             btn.disabled = false;
             calculateAndRenderResult();
+        }
+
+        async function registerConsult(btn) {
+            const originalText = btn.innerText;
+            btn.innerText = "Đang xử lý...";
+            btn.disabled = true;
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx1xyI3wnrsC6H90T57y8-9XdG2fNU4a-_WUsras-36L7KSxGTeNAamxNa2-LvUe0qipQ/exec';
+            if (window.currentLeadEmail && scriptURL) {
+                const formData = new FormData();
+                formData.append('action', 'updateStatus');
+                formData.append('email', window.currentLeadEmail);
+
+                try {
+                    await fetch(scriptURL, { method: 'POST', body: formData });
+                } catch (e) {
+                    console.error("Lỗi khi update lead:", e);
+                }
+            }
+
+            btn.innerText = originalText;
+            btn.disabled = false;
+            showScreen('screen-thankyou');
         }
 
         function calculateAndRenderResult() {
