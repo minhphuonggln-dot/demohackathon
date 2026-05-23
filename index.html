@@ -648,7 +648,7 @@
             window.currentLeadEmail = email; // Lưu lại để dùng nếu ấn Tư vấn
 
             // TODO: Thay bằng URL Web App Apps Script sau khi bạn Deploy
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbx1xyI3wnrsC6H90T57y8-9XdG2fNU4a-_WUsras-36L7KSxGTeNAamxNa2-LvUe0qipQ/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwJF6b4Cmb_z6bekcmmFq6gDSbJ0B0eTF7ugqkObfjYQQDZbuuMXwPW3tZH17FlBZ4NZA/exec';
 
             if (scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
                 const formData = new FormData();
@@ -676,7 +676,7 @@
             btn.innerText = "Đang xử lý...";
             btn.disabled = true;
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbx1xyI3wnrsC6H90T57y8-9XdG2fNU4a-_WUsras-36L7KSxGTeNAamxNa2-LvUe0qipQ/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwJF6b4Cmb_z6bekcmmFq6gDSbJ0B0eTF7ugqkObfjYQQDZbuuMXwPW3tZH17FlBZ4NZA/exec';
             if (window.currentLeadEmail && scriptURL) {
                 const formData = new FormData();
                 formData.append('action', 'updateStatus');
